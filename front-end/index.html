@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block head%}
+<h1>Study Optimizer</h1>
+{% endblock %}
+
+{%block body%}
+    <form action="/submit-task" method="post">
+        <!-- Task input (String) -->
+        <label for="task">Enter Task:</label>
+        <input type="text" id="task" name="task" required><br><br>
+
+        <!-- Hours input (Float) -->
+        <label for="hours">Enter Hours:</label>
+        <input type="number" id="hours" name="hours" step="0.01" required><br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+       
+{% endblock %}

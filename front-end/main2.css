@@ -1,0 +1,80 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bowlby One Sc', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Timer container */
+.timer-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Heading style */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+}
+
+/* Timer display */
+#timer {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin: 20px 0;
+}
+
+/* Buttons */
+button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.start {
+    background-color: #4CAF50;
+}
+
+button.stop {
+    background-color: #f44336;
+}
+
+button.reset {
+    background-color: #2196F3;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    .timer-container {
+        padding: 30px;
+    }
+}

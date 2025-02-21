@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Study Optimizer</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    #timer {
+        font-size: 2rem;
+        margin: 20px 0;
+    }
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1>Study Optimizer Timer</h1>
+<div id="timer">00:00:00</div>
+<button onclick="startTimer()">Start</button>
+<button onclick="stopTimer()">Stop</button>
+<button onclick="resetTimer()">Reset</button>
+
+<script>
+    let timerInterval;
+    let elapsedSeconds = 0;
+
+    function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+        if (timerInterval) return; // Prevent multiple intervals
+        timerInterval = setInterval(() => {
+            elapsedSeconds++;
+            document.getElementById("timer").innerText = formatTime(elapsedSeconds);
+        }, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+        timerInterval = null; // Reset the interval reference
+    }
+
+    function resetTimer() {
+        stopTimer(); // Stop the timer if running
+        elapsedSeconds = 0; // Reset the elapsed time
+        document.getElementById("timer").innerText = formatTime(elapsedSeconds);
+    }
+</script>
+{% endblock %}
